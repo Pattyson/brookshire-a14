@@ -5,36 +5,36 @@
 
 
 import java.util.Scanner;
-import java.lang.Math;
 
-public class Solution14 {
+public class        Solution14 {
 
     public static void main(String[] agrs) {
 
         Scanner input = new Scanner(System.in);
-        float princ, rate, years, times;
+        double Order, Tax, Total;
+        double g = 0.055;
+        String stg1;
 
-        System.out.println("Enter the principal:");
-        princ = input.nextFloat();
+        System.out.println("What is the order amount?");
+        Order = input.nextFloat();
 
-        System.out.println("Enter the rate of interest:");
-        rate = input.nextFloat();
+        System.out.println("What is the state?");
+        stg1 = input.next();
 
-        System.out.println("Enter the number of years:");
-        years = input.nextFloat();
+        if(stg1.equals("WI")) {
+            System.out.println("Subtotal is $" + Order);
 
-        System.out.println("Enter the number of times the interest is compounded per year:");
-        times = input.nextFloat();
+            Tax = Order * g;
+            System.out.println("The tax is $" + Tax);
 
-        double answer, prt1, prt2, prt3;
-        prt1 = 1 + ((rate/100) / times);
-        prt2 = times * years;
-        prt3 = Math.pow(prt1, prt2);
-        answer = prt3 * princ;
+            Total = Tax + Order;
+            System.out.println("The total is $" + Total);
+        }
+        else {
 
-        double roundOff = Math.round(answer*100.0)/100.0;
+            System.out.println("Total is $" + Order);
+        }
 
-        System.out.println("$" + princ + " invested at " + rate + "% for " + years + " years compounded " + times + " times per year is $" + roundOff);
     }
 
 }
